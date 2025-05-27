@@ -1,17 +1,67 @@
 plugins {
-    id 'java'
+    id 'java' //enables java support
+    id 'org.springframework.boot' version '3.4.5' //adds spring boot features (e.g. auto-configuration, embedded server)
+    id 'io.spring.dependency-management' version '1.1.7' //manage spring dependency versions
+    id 'application' //define the main class and run the app via gradle run
 }
 
-group = 'com.postgresql'
+group = 'com.example' //defines the base package
 version = '1.0-SNAPSHOT'
 
+application {
+    mainClass='com.example.Main' //specifies the entry point of the app
+}
 repositories {
     mavenCentral()
 }
 
+java{ //java version configuration
+    toolchain {
+        languageVersion=JavaLanguageVersion.of(22) //ensures gradle uses the correct JDK version despite the system default
+    }
+}
+
+configurations { //ensures annotationProcessors like lombok are available at compile time
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
 dependencies {
+    //unit testing using junit
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    //integration testing using spring's testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    //enables Spring MVC to build RESTful HTTP APIs, and handle HTTP requests
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //security for authorization, authentication, BCrypt, securing API endpoints
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    //JPA simplifies database operations with Hibernate using java objects (ORM)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    //postreSQL driver
+    runtimeOnly 'org.postgresql:postgresql'
+
+    //JWT that handle creating, signing, verifying JWT tokens for secure authentication
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    //email support for sending verification emails
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    //spring dev-tools to enable hot-reloading during development , it automatically restarts the app when files change during development
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    //lombok to reduce boilerplate code, it auto generates setters, getters, constructors, toString(), etc.
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
 }
 
 test {
