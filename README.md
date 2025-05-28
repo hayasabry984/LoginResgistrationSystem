@@ -17,11 +17,13 @@ ________________________________________
 - Rapid development	--> DevTools & Lombok 
 - Testing	--> JUnit & Spring Boot Testing
 ________________________________________
-# First Phase
-Infrastructure Setup:
+# First Phase: Infrastructure Setup:
 1) gradle file: include dependencies of the needed technology
 2) .env: for system variables
 3) application.properties 
 4) setup PostgreSQL
 
- 
+# Second Phase: Database Layer
+1) users entity/model classes: this represents the tables structure in the database, so we will have one class 'users'
+2) user repository interface: it handles database operations on users table
+3) DTOs: Data Transfer Objects to hold data sent from frontend, so we will have DTOs for registration, email verification,login
