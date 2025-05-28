@@ -19,7 +19,7 @@ ________________________________________
 ________________________________________
 # First Phase
 Infrastructure Setup:
-1) gradle file: include dependencies of (spring-boot, spring-security, JWT, email Sending, database&JPA, testing, PostgreSQL, spring-devTools, lombok) 
+1) gradle file: include dependencies of the needed technology
 2) .env: for system variables
 3) application.properties 
 4) setup PostgreSQL
