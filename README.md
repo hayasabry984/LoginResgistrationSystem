@@ -27,3 +27,8 @@ ________________________________________
 1) users entity/model classes: this represents the tables structure in the database, so we will have one class 'users'
 2) user repository interface: it handles database operations on users table
 3) DTOs: Data Transfer Objects to hold data sent from frontend, so we will have DTOs for registration, email verification,login
+
+# Third Phase: Configuration
+1) ApplicationConfiguration: To allow the login and registration so we have to configure the spring security's authentication mechanism
+2) 
+
