@@ -37,5 +37,5 @@ ________________________________________
 2) JwtAuthenticationFilter: we have to build this so spring security can use it with each request to validate the token and authenticate user
 3) SecurityConfiguration: we need to configure spring security to use JWT, allow requests from frontend, and protect API endpoints
 
-# fifth Phase: Service
+# FiFth Phase: Service
 1) JwtService: it creates, signs, extracts, validates for security
