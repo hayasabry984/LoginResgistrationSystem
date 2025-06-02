@@ -28,7 +28,14 @@ ________________________________________
 2) user repository interface: it handles database operations on users table
 3) DTOs: Data Transfer Objects to hold data sent from frontend, so we will have DTOs for registration, email verification,login
 
-# Third Phase: Configuration
-1) ApplicationConfiguration: To allow the login and registration so we have to configure the spring security's authentication mechanism
-2) 
+# Third Phase: Data objects sent to & from the frontend 
+1) DTOs: Data Transfer Objects to hold data sent from frontend, so we will have DTOs for registration, email verification,login
+2) LoginResponse: return JWT and expiration time after a successful login for security
 
+# Fourth Phase: Configuration
+1) ApplicationConfiguration: To allow the login and registration so we have to configure the spring security's authentication mechanism
+2) JwtAuthenticationFilter: we have to build this so spring security can use it with each request to validate the token and authenticate user
+3) SecurityConfiguration: we need to configure spring security to use JWT, allow requests from frontend, and protect API endpoints
+
+# fifth Phase: Service
+1) JwtService: it creates, signs, extracts, validates for security

@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+
 /*
 @Entity //marks this class as a JPA entity to map to a database table
 @Table(name="users") //map it to the users table in the database
@@ -23,9 +24,11 @@ public class User implements UserDetails { //implements UserDetails so spring se
     @GeneratedValue(strategy = GenerationType.AUTO) //auto generates unique user IDs
     private long id;
 
+    //@Column(unique = true, nullable = false)
     @Column(nullable = false)
     private String username;
 
+    //@Column(unique = true, nullable = false)
     @Column(nullable = false)
     private String email;
 
