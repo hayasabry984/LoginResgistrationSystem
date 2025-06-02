@@ -36,6 +36,8 @@ ________________________________________
 1) ApplicationConfiguration: To allow the login and registration so we have to configure the spring security's authentication mechanism
 2) JwtAuthenticationFilter: we have to build this so spring security can use it with each request to validate the token and authenticate user
 3) SecurityConfiguration: we need to configure spring security to use JWT, allow requests from frontend, and protect API endpoints
+4) EmailConfiguration: it sets up spring's JavaMailSender to send verification email via gmail
 
 # FiFth Phase: Service
-1) JwtService: it creates, signs, extracts, validates for security
+1) JwtService: it generates, extracts, validates tokens for security
+2) EmailService: 
