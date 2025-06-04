@@ -7,7 +7,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public class LoginUserDTO {
-    private String username;
+    @Getter
+    private String email;
     private String password; //will later be checked and hashed by spring security
 }
 /*

@@ -73,4 +73,11 @@ public class User implements UserDetails { //implements UserDetails so spring se
     public boolean isEnabled() {
         return enabled;
     }
+
+    public void setVerificationCodeExpiresAt(LocalDateTime verificationExpiration){
+        this.verificationCode = verificationExpiration.toString();
+    }
+    public LocalDateTime getVerificationCodeExpiresAt(){
+        return verificationExpiration;
+    }
 }

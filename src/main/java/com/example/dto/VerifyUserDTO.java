@@ -1,7 +1,13 @@
 package com.example.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 //holds verification data sent from frontend, before enabling the account, as VerifyUserDTO instance
+@Getter
+@Setter
 public class VerifyUserDTO {
+    @Getter
     private String email;
     private String verificationCode;
 }

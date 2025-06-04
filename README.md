@@ -41,3 +41,4 @@ ________________________________________
 # FiFth Phase: Service
 1) JwtService: it generates, extracts, validates tokens for security
 2) EmailService: handling sending verification emails
+3) AuthenticationService: handles registration, authentication, verification users
