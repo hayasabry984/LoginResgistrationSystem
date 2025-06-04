@@ -42,3 +42,8 @@ ________________________________________
 1) JwtService: it generates, extracts, validates tokens for security
 2) EmailService: handling sending verification emails
 3) AuthenticationService: handles registration, authentication, verification users
+4) UserService: handles logic related to users, it retrieves all users in the database
+
+# Sixth Phase: Controller
+1) AuthenticationController: Base URL, all endpoint are unser this
+2) UserController: handles user-related HTTP requests

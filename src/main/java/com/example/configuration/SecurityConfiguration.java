@@ -36,8 +36,8 @@ public class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable()) //disables CSRF (npt needed for stateless JWT)
                 .authorizeHttpRequests(authorize -> authorize
                                 .requestMatchers("/auth/**").permitAll() //public endpoints: allows public access to "/auth/**" endpoints (signup, login, verify) without authentication
-                                //.anyRequest().authenticated() //secured endpoints: requires authentication ( a valid JWT token) for all other endpoints
-                        .anyRequest().permitAll()
+                                .anyRequest().authenticated() //secured endpoints: requires authentication ( a valid JWT token) for all other endpoints
+                        //.anyRequest().permitAll()
                 )
                 .sessionManagement(session->session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS) //uses stateless sessions (no HTTP sessions) (JWT-based) are stored server-side
