@@ -24,12 +24,12 @@ public class User implements UserDetails { //implements UserDetails so spring se
     @GeneratedValue(strategy = GenerationType.AUTO) //auto generates unique user IDs
     private long id;
 
-    //@Column(unique = true, nullable = false)
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
+    //@Column(nullable = false)
     private String username;
 
-    //@Column(unique = true, nullable = false)
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
+    //@Column(nullable = false)
     private String email;
 
     @Column(nullable = false)
@@ -75,8 +75,10 @@ public class User implements UserDetails { //implements UserDetails so spring se
     }
 
     public void setVerificationCodeExpiresAt(LocalDateTime verificationExpiration){
-        this.verificationCode = verificationExpiration.toString();
+        //this.verificationCode = verificationExpiration.toString();
+        this.verificationExpiration = verificationExpiration;
     }
+
     public LocalDateTime getVerificationCodeExpiresAt(){
         return verificationExpiration;
     }

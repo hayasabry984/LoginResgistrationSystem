@@ -142,7 +142,7 @@ public class AuthenticationService {
     - sends email
     - saves user
      */
-    public void resendVerificationCoe(String email) {
+    public void resendVerificationCode(String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();

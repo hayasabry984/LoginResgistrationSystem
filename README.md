@@ -1,49 +1,71 @@
-# LoginResgistrationSystem
+# 🔐Login & Registration System with Spring Boot, JWT, and Email Verification
 
-This app uses Layered Architecture
-________________________________________
-Main Features:
-1) Registration
-2) email verification
-3) login
-4) JWT authentication
-________________________________________
-- User API --> Spring Web 
-- Database (Users entity)	--> Spring Data JPA + PostgreSQL 
-- Authentication & Security --> Spring Security + JWT 
-- Password hashing --> via Spring Security (typically using BCrypt)
-- Email verification --> Spring Mail 
-- Input validation --> Spring Validation 
-- Rapid development	--> DevTools & Lombok 
-- Testing	--> JUnit & Spring Boot Testing
-________________________________________
-# First Phase: Infrastructure Setup:
-1) gradle file: include dependencies of the needed technology
-2) .env: for system variables
-3) application.properties 
-4) setup PostgreSQL
+A robust and secure user authentication system built with Java 22, Spring Boot 3, Spring Security, JWT (JSON Web Tokens), PostgreSQL, and Gmail SMTP for email verification.
 
-# Second Phase: Database Layer
-1) users entity/model classes: this represents the tables structure in the database, so we will have one class 'users'
-2) user repository interface: it handles database operations on users table
-3) DTOs: Data Transfer Objects to hold data sent from frontend, so we will have DTOs for registration, email verification,login
+This project demonstrates a production-ready authentication system using modern Spring Boot practices, making it ideal for real-world applications.
 
-# Third Phase: Data objects sent to & from the frontend 
-1) DTOs: Data Transfer Objects to hold data sent from frontend, so we will have DTOs for registration, email verification,login
-2) LoginResponse: return JWT and expiration time after a successful login for security
+---
+## ✅ Features
+- 📬 **User Registration** with email & password
+- 🔐 **BCrypt Password Hashing** for secure credential storage
+- 📧 **Email Verification** with expiring 6-digit code
+- 🔑 **JWT-Based Login** for stateless, secure sessions
+- 🔄 **Resend Verification Code** if the user missed the email
+- 👤 **Get Current User** and list all users (protected endpoints)
+- 🚫 Proper error handling & account access control
+- ⚙️ CORS configuration for frontend integration (e.g., React, Angular)
+---
+## 🛠️ Technologies Used
+| Stack | Tech |
+|-------|------|
+| Language | Java 22 |
+| Framework | Spring Boot 3.4+ |
+| Security | Spring Security, JWT, BCrypt |
+| Database | PostgreSQL |
+| Mail | Gmail SMTP via Spring Mail |
+| Build Tool | Maven |
+| API Testing | Postman |
+---
+## 📁 Project Structure
 
-# Fourth Phase: Configuration
-1) ApplicationConfiguration: To allow the login and registration so we have to configure the spring security's authentication mechanism
-2) JwtAuthenticationFilter: we have to build this so spring security can use it with each request to validate the token and authenticate user
-3) SecurityConfiguration: we need to configure spring security to use JWT, allow requests from frontend, and protect API endpoints
-4) EmailConfiguration: it sets up spring's JavaMailSender to send verification email via gmail
+src/
 
-# FiFth Phase: Service
-1) JwtService: it generates, extracts, validates tokens for security
-2) EmailService: handling sending verification emails
-3) AuthenticationService: handles registration, authentication, verification users
-4) UserService: handles logic related to users, it retrieves all users in the database
+├── configuration/ # Security, JWT, Email, CORS configs
 
-# Sixth Phase: Controller
-1) AuthenticationController: Base URL, all endpoint are unser this
-2) UserController: handles user-related HTTP requests
+├── controller/ # REST endpoints
+
+├── dto/ # Data Transfer Objects
+
+├── model/ # JPA Entity
+
+├── repository/ # Spring Data JPA Repository
+
+├── response/ # Login response wrapper
+
+├── service/ # Business logic (Auth, JWT, Mail, User)
+
+└── Main.java # Spring Boot entry point
+
+---
+## 🔍 Postman API Testing
+🚀 Base URL: http://localhost:8080
+
+| Endpoint                 | Method | Description                    |
+| ------------------------ | ------ | ------------------------------ |
+| `/auth/signup`           | `POST` | Register a new user            |
+| `/auth/verify`           | `POST` | Verify email with code         |
+| `/auth/login`            | `POST` | Authenticate and get JWT       |
+| `/auth/resend?email=...` | `POST` | Resend verification code       |
+| `/users/me`              | `GET`  | Get current authenticated user |
+| `/users/`                | `GET`  | Get list of all users          |
+---
+## 🛡️ Security Notes
+All passwords are hashed with BCrypt
+
+JWT tokens are signed with a secret key
+
+Email verification codes expire in 15 minutes
+
+Protected endpoints require valid JWT tokens
+
+CORS allows frontend apps on http://localhost:8080

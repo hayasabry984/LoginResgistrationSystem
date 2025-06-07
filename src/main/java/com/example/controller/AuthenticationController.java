@@ -12,7 +12,7 @@ import com.example.service.JwtService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/auth") //Base URL, all endpoint are unser this
+@RequestMapping("/auth") //Base URL, all endpoint are using this
 @RestController
 public class AuthenticationController { //this rest controller handles user authentication-related API endpoints
     private final JwtService jwtService;
@@ -26,7 +26,8 @@ public class AuthenticationController { //this rest controller handles user auth
     @PostMapping("/signup")
     public ResponseEntity<User> register(@RequestBody RegisterUserDTO registerUserDTO){
         User registeredUser=authenticationService.signUp(registerUserDTO); //Calls authenticationService.signup() with user input.
-        return ResponseEntity.ok(registeredUser); //Returns the registered user as the response.
+        return ResponseEntity.ok(registeredUser); //Returns the registered user as the response.(temporarily)
+        //return ResponseEntity.ok("Signup successful, please verify your email.");
     }
 
     @PostMapping("/login")
@@ -50,7 +51,7 @@ public class AuthenticationController { //this rest controller handles user auth
     @PostMapping("/resend")
     public ResponseEntity<?> resendVerificationCode(@RequestParam String email){
         try{
-            authenticationService.resendVerificationCoe(email);
+            authenticationService.resendVerificationCode(email);
             return ResponseEntity.ok("Verification code resent");
         }
         catch(RuntimeException e){
