@@ -71,5 +71,34 @@ Protected endpoints require valid JWT tokens
 CORS allows frontend apps on http://localhost:8080
 
 ---
-# Class Diagram
+## UseCase Diagram
+![LoginRegistration_UseCaseDiagram drawio](https://github.com/user-attachments/assets/116cbcb0-fe2b-4c7f-b865-89eeea0cafc2)
+
+
+---
+## Class Diagram
 ![Login Registration drawio](https://github.com/user-attachments/assets/2cca754d-999b-4104-bbc9-6057fe8ad80c)
+
+---
+## Sequence Diagram 1: User Registration (Sign Up) and Email Verification
+![image](https://github.com/user-attachments/assets/ea9743a4-6fdc-46e3-a2e4-70f5c0fced9d)
+
+---
+## Sequence Diagram 2: Resend Verification Code
+![image](https://github.com/user-attachments/assets/244af59e-0c1e-4d35-9e03-2ad6562de6c4)
+
+---
+## Sequence Diagram 3: User Login (Authentication)
+![image](https://github.com/user-attachments/assets/7d138e95-8e4a-461c-9ff2-cd34de5747ec)
+
+---
+## Sequence Diagram 4: Access Protected Endpoint (JWT Validation)
+![image](https://github.com/user-attachments/assets/48339bf4-acf5-4ab5-909f-c9f8738b5793)
+
+---
+## Sequence Diagram 5: Get Current User
+![image](https://github.com/user-attachments/assets/3d1e990d-3419-44ef-9ea3-309c8a864d5a)
+
+---
+## Sequence Diagram 6: Get All Users
+![image](https://github.com/user-attachments/assets/b1ba17b7-9e76-45ee-8e60-216efe21daed)
