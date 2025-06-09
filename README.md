@@ -1,4 +1,4 @@
-![Login Registration drawio](https://github.com/user-attachments/assets/5549eddd-7087-4908-8108-4873fefd705a)# 🔐Login & Registration System with Spring Boot, JWT, and Email Verification
+# 🔐Login & Registration System with Spring Boot, JWT, and Email Verification
 
 A robust and secure user authentication system built with Java 22, Spring Boot 3, Spring Security, JWT (JSON Web Tokens), PostgreSQL, and Gmail SMTP for email verification.
 
